@@ -7,7 +7,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import Todo from '../../react-todo-codealong-7-22/reactApp/components/Todo';
 
-let dummyData = ['Make dinner', 'Go to the gym', 'Take over the world ']
+let dummyData = [{ taskText: "Make dinner", completed: true },
+{ taskText: "Dig in", completed: false },
+{ taskText: "Take over the world", completed: false }]
 
 class Todo extends React.Component{
     constructor(props){
@@ -20,7 +22,7 @@ class Todo extends React.Component{
             <li>
                 <span>
                 <button> X </button>
-                {this.props.task}
+                {this.props.taskCompleted ? <strike>{this.props.taskText}</strike>: this.props.taskText}
                 </span>
             </li>
         )
@@ -36,8 +38,9 @@ class TodoList extends React.Component {
 
     render() {
       return(
-            <ul> {dummyData.map((taskName)=> <Todo
-            task={taskName}/>)} </ul>
+            <ul> {dummyData.map((taskObj)=> <Todo
+            taskText={taskObj.taskText}
+            taskCompleted={taskObj.completed}/>)} </ul>
       )}
   }
 
