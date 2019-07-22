@@ -38,7 +38,7 @@ class TodoList extends React.Component {
 
     render() {
       return(
-            <ul> {dummyData.map((taskObj)=> <Todo
+            <ul> {this.props.todos.map((taskObj)=> <Todo
             taskText={taskObj.taskText}
             taskCompleted={taskObj.completed}/>)} </ul>
       )}
@@ -63,15 +63,18 @@ class InputLine extends React.Component {
 class TodoApp extends React.Component {
     constructor(props){
         super(props);
-        this.state = { 
+        this.state = {todos:[]
         };
     }
-
+        componentDidMount(){
+            this.setState({todos:dummyData})
+        }
         render(){
             return(
                 <div>
                     <InputLine/>
-                    <TodoList/>
+                    <TodoList 
+                    todos={this.state.todos}/>
                 </div>
             )
         }
