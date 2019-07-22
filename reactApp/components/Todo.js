@@ -14,6 +14,8 @@ class Todo extends React.Component{
                 <span>
                 <button onClick={(index)=> this.props.xClick(index)}> X </button>
                 {this.props.taskCompleted ? <strike>{this.props.taskText}</strike>: this.props.taskText}
+                {this.props.taskCompleted ? <input type="checkbox" checked="true" onChange={(index)=>this.props.toggle(index)}/>
+                : <input type="checkbox" onChange={(index)=>this.props.toggle(index)}/>}
                 </span>
             </li>
         )

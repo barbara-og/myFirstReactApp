@@ -24,6 +24,10 @@ class TodoApp extends React.Component {
         dummyData.splice(index, 1)
         this.setState({todos:dummyData})
     }
+    toggleTodo(index){
+        {this.state.todos[index].completed===true ? this.state.todos[index].completed=false: this.state.todos[index].completed=true}
+        this.setState({todos:dummyData})
+    }
     componentDidMount(){
         this.setState({todos:dummyData})
     }
@@ -34,7 +38,8 @@ class TodoApp extends React.Component {
             submit={(taskStr)=> this.addTodo(taskStr)}/> 
             <TodoList 
             todos={this.state.todos}
-            todoXClick={(index)=> this.removeTodo(index)}/>
+            todoXClick={(index)=> this.removeTodo(index)}
+            todoToggle={(index)=> this.toggleTodo(index)}/>
             </div>
             )
         }
