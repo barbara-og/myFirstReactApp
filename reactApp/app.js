@@ -41,6 +41,39 @@ class TodoList extends React.Component {
       )}
   }
 
+class InputLine extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { 
+        };
+    }
+    render(){
+        return(
+            <span>
+                <input type="text"/>
+                <button> Add Todo</button>
+            </span>
+        )
+    }
+}
 
-ReactDOM.render(<TodoList />,
+class TodoApp extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { 
+        };
+    }
+
+        render(){
+            return(
+                <div>
+                    <InputLine/>
+                    <TodoList/>
+                </div>
+            )
+        }
+}
+
+
+ReactDOM.render(<TodoApp />,
     document.getElementById('root'));
