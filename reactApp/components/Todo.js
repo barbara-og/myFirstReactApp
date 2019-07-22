@@ -12,7 +12,7 @@ class Todo extends React.Component{
         return(
             <li>
                 <span>
-                <button> X </button>
+                <button onClick={(index)=> this.props.xClick(index)}> X </button>
                 {this.props.taskCompleted ? <strike>{this.props.taskText}</strike>: this.props.taskText}
                 </span>
             </li>

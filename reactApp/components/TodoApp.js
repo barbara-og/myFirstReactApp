@@ -19,6 +19,11 @@ class TodoApp extends React.Component {
         dummyData.push({taskText:taskStr, completed:false})
         this.setState({todos:dummyData})
     }
+
+    removeTodo(index){
+        dummyData.splice(index, 1)
+        this.setState({todos:dummyData})
+    }
     componentDidMount(){
         this.setState({todos:dummyData})
     }
@@ -28,7 +33,8 @@ class TodoApp extends React.Component {
             <InputLine
             submit={(taskStr)=> this.addTodo(taskStr)}/> 
             <TodoList 
-            todos={this.state.todos}/>
+            todos={this.state.todos}
+            todoXClick={(index)=> this.removeTodo(index)}/>
             </div>
             )
         }
