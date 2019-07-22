@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const dbRoutes = require('./routes/databaseAccess.js');
+const mongoose = require('mongoose');
+
+
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 // This line makes the build folder publicly available.
 app.use(express.static('build'));
